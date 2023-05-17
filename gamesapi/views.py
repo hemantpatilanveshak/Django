@@ -51,7 +51,7 @@ class GameDetails(APIView):
 
     def put(self,request,id):
         try:
-            obj = Games.objects.get(id=id)
+            obj = Games.objects.get(xy=id)
         except Games.DoesNotExist:
             return Response({"Message":"Game ID Does not exists"})
 
