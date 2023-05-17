@@ -74,33 +74,33 @@ class GameDetails(APIView):
         return Response({"msg":"Data Updated Successfully","data":data}) 
 
 
-    def patch(self,request,id):
-        try:
-            obj = Games.objects.get(pk=id)
-        except Games.DoesNotExist:
-            return Response({"msg":"Id does not exists"})
+#     def patch(self,request,id):
+#         try:
+#             obj = Games.objects.get(pk=id)
+#         except Games.DoesNotExist:
+#             return Response({"msg":"Id does not exists"})
 
-        Game_Name = request.data.get('Game_Name')
-        Price = request.data.get('Price')
-        Ratings = request.data.get('Ratings')   
-        Year_Of_Release = request.data.get('Year_Of_Release')
+#         Game_Name = request.data.get('Game_Name')
+#         Price = request.data.get('Price')
+#         Ratings = request.data.get('Ratings')   
+#         Year_Of_Release = request.data.get('Year_Of_Release')
 
-        if Game_Name:
-            obj.Game_Name = Game_Name
-        elif Price:
-            obj.Price = Price
-        elif Ratings:
-            obj.Ratings = Year_Of_Release
-        elif Year_Of_Release:
-            obj.Year_Of_Release = Year_Of_Release
+#         if Game_Name:
+#             obj.Game_Name = Game_Name
+#         elif Price:
+#             obj.Price = Price
+#         elif Ratings:
+#             obj.Ratings = Year_Of_Release
+#         elif Year_Of_Release:
+#             obj.Year_Of_Release = Year_Of_Release
 
         
-        obj.save()
+#         obj.save()
 
-        data = {"Game_Name" : obj.Game_Name,"Price":obj.Price ,
-                "Ratings" : obj.Ratings, "Year_Of_Release" :obj.Year_Of_Release}
+#         data = {"Game_Name" : obj.Game_Name,"Price":obj.Price ,
+#                 "Ratings" : obj.Ratings, "Year_Of_Release" :obj.Year_Of_Release}
 
-        return Response({"Msg":"Patch Data Confirm","data":data})       
+#         return Response({"Msg":"Patch Data Confirm","data":data})       
 
 
     def delete(self,request,id):
