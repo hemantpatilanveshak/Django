@@ -12,7 +12,7 @@ class GameDetails(APIView):
     def get(self,request,id=None):
         try:
             if id is not None:
-                obj = Games.objects.get(id=id)
+                obj = Games.objects.get(pk=id)
                 # Game_Name = request.data.get('Game_Name')
                 # Price = request.data.get('Price')
                 # Ratings = request.data.get('Ratings')
@@ -51,7 +51,7 @@ class GameDetails(APIView):
 
     def put(self,request,id):
         try:
-            obj = Games.objects.get(pk=id)
+            obj = Games.objects.get(qw=id)
         except Games.DoesNotExist:
             return Response({"Message":"Game ID Does not exists"})
 
